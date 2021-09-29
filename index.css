@@ -8,14 +8,14 @@ html{
 #app{
     box-sizing: border-box;
     width: 100vw;
-    height: 100vh;
+    height: 80vh;
 }
 canvas{
     background-color: #eee;
 }
 .canvas-cantainer{
     width: 100vw;
-    height: 80vh;
+    height: 80%;
 }
 
 
