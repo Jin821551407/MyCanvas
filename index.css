@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 5.333333rem;
+}
+#app{
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+}
+canvas{
+    background-color: #eee;
+}
+.canvas-cantainer{
+    width: 100vw;
+    height: 80vh;
+}
+
+
+/*
+画笔工具样式
+*/
+.tools-container{
+    height: 20vh;
+    box-sizing: border-box;
+    border-top: 1px solid #333;
+    display: flex;
+}
+.tools-container>div{
+    border-right: 1px solid #333;
+    flex: 0.25;
+}
+/*
+画笔工具画笔粗细样式
+*/
+.tools-container div.choose-size{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: .15rem .05rem;
+}
+.tools-container div.size>.choose-size>div{
+    border-radius: 50%; 
+    background-color: #333;
+    opacity: 0.2;
+}
+.tools-container div.size>.choose-size>div.active{
+    opacity: 1;
+}
+.tools-container div.size>.choose-size>div.small{
+    width: .13rem;
+    height: .13rem;
+}
+.tools-container div.size>.choose-size>div.middle{
+    width: .16rem;
+    height: .16rem;
+}
+.tools-container div.size>.choose-size>div.large{
+    width: .2rem;
+    height: .2rem;
+}
+
+/*
+画笔工具颜色样式
+*/
+.tools-container div.colors{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.tools-container div.colors>div{
+    box-sizing: border-box;
+    width: 40%;
+    height: 20%;
+}
+/* 
+全局背景颜色
+*/
+.black{
+    background-color: black !important;
+}
+.red{
+    background-color: red !important;
+}
+.orange{
+    background-color: orange !important;
+}
+.yellow{
+    background-color: yellow !important;
+}
+.green{
+    background-color: green !important;
+}
+.cyan{
+    background-color: cyan !important;
+}
+.blue{
+    background-color: blue !important;
+}
+.purple{
+    background-color: purple !important;
+}

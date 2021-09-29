@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的画板</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="canvas-cantainer" ref="canvasCantainer">
+            <canvas ref="canvas" @touchStart='drawStart' @touchEnd='drawEnd' @touchMove='drawCanvas'></canvas>
+        </div>
+        <div class="tools-container">
+            <div class="shape">
+
+            </div>
+            <div class="pens">
+
+            </div>
+            <div class="size">
+                <div class="choose-size">
+                    <div class="small" :class='[color,{active:sizeIndex===1}]' @click='changeSizeIndex(1)'></div>
+                    <div class="middle" :class='[color,{active:sizeIndex===2}]' @click='changeSizeIndex(2)'></div>
+                    <div class="large" :class='[color,{active:sizeIndex===3}]' @click='changeSizeIndex(3)'></div>
+                </div>
+            </div>
+            <div class="colors">
+                <div class="black active" @touchStart='chooseColor("black")'></div>
+                <div class="red" @click='chooseColor("red")'></div>
+                <div class="orange" @click='chooseColor("orange")'></div>
+                <div class="yellow" @click='chooseColor("yellow")'></div>
+                <div class="green" @click='chooseColor("green")'></div>
+                <div class="cyan" @click='chooseColor("cyan")'></div>
+                <div class="blue" @click='chooseColor("blue")'></div>
+                <div class="purple" @click='chooseColor("purple")'></div>
+            </div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
