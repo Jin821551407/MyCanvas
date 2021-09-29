@@ -32,9 +32,15 @@ new Vue({
             this.size=sizeIndex
         },
         drawStart(event){
+            const canvas = this.$refs.canvas
+            // 开启2d的绘制环境
+            ctx = canvas.getContext("2d");
+            if(event.touches.length===1){
+                ctx.save()
+            }
             // console.log(event.touches.length===2);
             if(event.touches.length===2){
-                this.touch=true
+                ctx.restore()
             }
             // this.touch=true
             // console.log(this.touch)
