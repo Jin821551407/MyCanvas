@@ -26,6 +26,9 @@
                     <div class="middle" :class='[color,{active:sizeIndex===2}]' @click='changeSizeIndex(2)'></div>
                     <div class="large" :class='[color,{active:sizeIndex===3}]' @click='changeSizeIndex(3)'></div>
                 </div>
+                <div class="buttons">
+                    <button class="clear" @click='clear'>清空画布</button>
+                </div>
             </div>
             <div class="colors">
                 <div class="black active" @touchStart='chooseColor("black")'></div>

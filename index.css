@@ -10,9 +10,9 @@ html{
     width: 100vw;
     height: 100vh;
 }
-canvas{
+/* canvas{
     background-color: #eee;
-}
+} */
 .canvas-cantainer{
     width: 100vw;
     height: 80vh;
@@ -23,6 +23,7 @@ canvas{
 画笔工具样式
 */
 .tools-container{
+    /* background-color: #eee; */
     height: 20vh;
     box-sizing: border-box;
     border-top: 1px solid #333;
@@ -40,6 +41,17 @@ canvas{
     justify-content: space-evenly;
     align-items: center;
     padding: .15rem .05rem;
+}
+.tools-container div.buttons{
+    height: .3rem;
+    display: flex;
+    justify-content: center;
+}
+.tools-container div.buttons>.clear{
+    background-color: #fff;
+    width: 60%;
+    border-radius: .1rem;
+    border: 1px solid #333;
 }
 .tools-container div.size>.choose-size>div{
     border-radius: 50%; 
@@ -74,7 +86,7 @@ canvas{
 .tools-container div.colors>div{
     box-sizing: border-box;
     width: 40%;
-    height: 20%;
+    height: 15%;
 }
 /* 
 全局背景颜色
