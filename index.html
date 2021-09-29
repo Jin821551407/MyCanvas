@@ -16,7 +16,7 @@
             @touchStart.prevent='drawStart' 
             @touchEnd.prevent='drawEnd' 
             @touchMove.prevent='drawCanvas'
-            ></canvas>
+            :class="{red:touch}"></canvas>
         </div>
         <div class="tools-container">
             <div class="shape">
