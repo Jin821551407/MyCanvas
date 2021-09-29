@@ -31,14 +31,18 @@ new Vue({
             this.sizeIndex=sizeIndex
             this.size=sizeIndex
         },
-        drawStart(){
-            this.touch=true
+        drawStart(event){
+            // console.log(event.touches.length===2);
+            if(event.touches.length===2){
+                this.touch=true
+            }
+            // this.touch=true
             // console.log(this.touch)
         },
         drawEnd(){
-            this.touch=false
-            // console.log(this.touch)
-            this.lastPoint={x:undefined,y:undefined}
+            // this.touch=false
+            // // console.log(this.touch)
+            // this.lastPoint={x:undefined,y:undefined}
         },
         drawCanvas(event){
             // 当手指滑动时
