@@ -5,6 +5,10 @@
 html{
     font-size: 5.333333rem;
 }
+span{
+    display: block;
+    font-size: .2rem;
+}
 #app{
     box-sizing: border-box;
     width: 100vw;
@@ -23,7 +27,7 @@ html{
 画笔工具样式
 */
 .tools-container{
-    /* background-color: #eee; */
+    background-color: #f1f1f1;
     height: 20vh;
     box-sizing: border-box;
     border-top: 1px solid #333;
