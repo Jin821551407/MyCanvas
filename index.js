@@ -36,10 +36,7 @@ new Vue({
             ctx.lineCap='round'
             this.canvas = canvas
             this.ctx = ctx
-            //读取画板存储历史
-            const img = new Image()
-            img.src = localStorage.getItem('mycanvas')
-            this.ctx.drawImage(img, 0, 0);
+            this.readHistory()
             //记录初始画布的状态
             const statusImg = this.ctx.getImageData(0,0,this.canvasWidth,this.canvasHeight)
             this.historyStatus.push(statusImg)
@@ -122,6 +119,12 @@ new Vue({
         },
         save(){
             localStorage.setItem('mycanvas',this.canvas.toDataURL("image/png"))
+        },
+        readHistory(){
+            //读取画板存储历史
+            const img = new Image()
+            img.src = localStorage.getItem('mycanvas')
+            this.ctx.drawImage(img, 0, 0);
         }
     }
 })
