@@ -12,6 +12,7 @@ new Vue({
             ctx:null, //2D绘制环境
             historyStatus:[], //画板状态保存数组
             historyIndex:0, //当前画板状态是历史数组的第几项
+            isSingle:true, //当前是否为单指点击默认为true
         }
     },
     mounted() {
@@ -49,23 +50,28 @@ new Vue({
         },
         drawStart(event){
             if(event.touches.length===1){
+                this.isSingle = true
                 return
             }
             if(event.touches.length===2){
+                this.isSingle = false
                 this.withdraw()
                 return
             }
             if(event.touches.length===3){
+                this.isSingle = false
                 this.forward()
                 return
             }
         },
         drawEnd(){
-            const statusImg = this.ctx.getImageData(0,0,this.canvasWidth,this.canvasHeight)
-            const deleteCount = this.historyStatus.length - this.historyIndex -1
-            this.historyIndex += 1
-            this.historyStatus.splice(this.historyIndex,deleteCount,statusImg)
-            this.lastPoint={x:undefined,y:undefined}
+            if(this.isSingle){
+                const statusImg = this.ctx.getImageData(0,0,this.canvasWidth,this.canvasHeight)
+                const deleteCount = this.historyStatus.length - this.historyIndex -1
+                this.historyIndex += 1
+                this.historyStatus.splice(this.historyIndex,deleteCount,statusImg)
+                this.lastPoint={x:undefined,y:undefined}
+            }
         },
         drawCanvas(event){
             // 当手指滑动时
