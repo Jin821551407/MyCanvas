@@ -36,6 +36,10 @@ new Vue({
             ctx.lineCap='round'
             this.canvas = canvas
             this.ctx = ctx
+            //读取画板存储历史
+            const img = new Image()
+            img.src = localStorage.getItem('mycanvas')
+            this.ctx.drawImage(img, 0, 0);
             //记录初始画布的状态
             const statusImg = this.ctx.getImageData(0,0,this.canvasWidth,this.canvasHeight)
             this.historyStatus.push(statusImg)
@@ -80,6 +84,7 @@ new Vue({
                 const deleteCount = this.historyStatus.length - this.historyIndex -1
                 this.historyIndex += 1
                 this.historyStatus.splice(this.historyIndex,deleteCount,statusImg)
+                this.save()
             }
             this.lastPoint={x:undefined,y:undefined}
         },
@@ -114,6 +119,9 @@ new Vue({
                 this.historyIndex += 1
                 this.ctx.putImageData(this.historyStatus[this.historyIndex],0,0)
             }
+        },
+        save(){
+            localStorage.setItem('mycanvas',this.canvas.toDataURL("image/png"))
         }
     }
 })
