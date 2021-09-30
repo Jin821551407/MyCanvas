@@ -70,8 +70,8 @@ new Vue({
                 const deleteCount = this.historyStatus.length - this.historyIndex -1
                 this.historyIndex += 1
                 this.historyStatus.splice(this.historyIndex,deleteCount,statusImg)
-                this.lastPoint={x:undefined,y:undefined}
             }
+            this.lastPoint={x:undefined,y:undefined}
         },
         drawCanvas(event){
             // 当手指滑动时
