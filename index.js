@@ -19,6 +19,7 @@ new Vue({
         this.setCanvasSize()
     },
     methods: {
+        //设置canvas画板
         setCanvasSize(){
             // console.dir(this.$refs.canvasCantainer.clientWidth);
             // 获取canvas
@@ -39,15 +40,18 @@ new Vue({
             const statusImg = this.ctx.getImageData(0,0,this.canvasWidth,this.canvasHeight)
             this.historyStatus.push(statusImg)
         },
+        //选择颜色
         chooseColor(color){
             // console.log(111);
             this.color=color
             this.ctx.strokeStyle  = this.color
         },
+        //选择线条宽度
         changeSizeIndex(sizeIndex){
             this.sizeIndex=sizeIndex
             this.size=sizeIndex
         },
+        //触摸开始
         drawStart(event){
             if(event.touches.length===1){
                 this.isSingle = true
@@ -63,7 +67,13 @@ new Vue({
                 this.forward()
                 return
             }
+            if(event.touches.length===4){
+                this.isSingle = false
+                this.clear()
+                return
+            }
         },
+        //触摸结束
         drawEnd(){
             if(this.isSingle){
                 const statusImg = this.ctx.getImageData(0,0,this.canvasWidth,this.canvasHeight)
@@ -73,6 +83,7 @@ new Vue({
             }
             this.lastPoint={x:undefined,y:undefined}
         },
+        //绘制线条
         drawCanvas(event){
             // 当手指滑动时
             // 绘制线条
@@ -85,6 +96,7 @@ new Vue({
             this.ctx.closePath();
             this.lastPoint = newPoint
         },
+        //清空画板
         clear(){
             this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
         },
